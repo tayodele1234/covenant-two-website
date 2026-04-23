@@ -40,7 +40,7 @@ nav.scrolled .nav-links a{color:var(--muted)}
 .hero-glow2{position:absolute;bottom:0;left:0;width:50%;height:60%;background:radial-gradient(ellipse 60% 60% at 20% 80%,rgba(90,138,94,0.12) 0%,transparent 60%);pointer-events:none}
 .hero-content{position:relative;z-index:2;max-width:780px;margin:0 auto;text-align:center}
 .hero-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:24px;margin-bottom:48px}
-.hero-logo-name{font-family:'Cormorant Garamond',serif;font-size:clamp(80px,13vw,160px);font-weight:700;letter-spacing:0.12em;line-height:1;color:#fff;text-shadow:0 4px 32px rgba(0,0,0,0.5)}
+.hero-logo-name{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,10vw,160px);font-weight:700;letter-spacing:0.08em;line-height:1;color:#fff;text-shadow:0 4px 32px rgba(0,0,0,0.5)}
 .hero-logo-name span{color:var(--gold);text-shadow:0 4px 32px rgba(196,154,60,0.5)}
 .hero-logo-tagline{font-size:13px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(196,154,60,0.15);border:1px solid rgba(196,154,60,0.3);border-radius:50px;padding:8px 20px;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
@@ -212,9 +212,14 @@ footer{background:var(--charcoal);padding:60px 40px 40px;border-top:2px solid va
   .footer-top{flex-direction:column}
   .footer-links{flex-direction:column;gap:32px}
   .footer-bottom{flex-direction:column;text-align:center}
-  .hero{padding:100px 24px 60px}
+  .hero{padding:100px 20px 60px;overflow:hidden}
+  .hero-content{width:100%;overflow:hidden}
+  .hero-logo-wrap{width:100%;overflow:hidden}
   .hero-actions{flex-direction:column;align-items:center}
   .email-form{flex-direction:column}
+  .hero-logo-name{font-size:clamp(36px,11vw,60px);letter-spacing:0.04em;word-spacing:0.1em}
+  .hero-logo-tagline{font-size:11px;letter-spacing:0.12em}
+  .hero-logo-wrap svg{width:110px;height:110px}
 }
 </style>
 </head>
