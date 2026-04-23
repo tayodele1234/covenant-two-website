@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Covenant Two — Built for Real Marriages. Rooted in Scripture.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#faf6ef;--cream-dark:#f0e8d8;--charcoal:#1a1410;--charcoal-mid:#2d2218;
+  --gold:#c49a3c;--gold-light:#e0bc6a;--gold-pale:#fdf3dc;--gold-border:#e8cc80;
+  --muted:#7a6248;--hint:#b09870;--sage:#5a8a5e;--rose:#a8463a;
+  --white:#fffef9;--border:#e8d9bc;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden;line-height:1.6}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s}
+nav.scrolled{background:rgba(250,246,239,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 40px}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--charcoal);letter-spacing:0.06em}
+.nav-logo-text span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--charcoal);color:var(--gold);padding:10px 22px;border-radius:50px;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.nav-cta:hover{background:var(--gold);color:#fff}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:120px 40px 80px}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#1a1410 0%,#2d1f10 50%,#1e2a1a 100%)}
+.hero-glow{position:absolute;top:0;right:0;width:60%;height:100%;background:radial-gradient(ellipse 80% 70% at 80% 20%,rgba(196,154,60,0.2) 0%,transparent 65%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:0;left:0;width:50%;height:60%;background:radial-gradient(ellipse 60% 60% at 20% 80%,rgba(90,138,94,0.12) 0%,transparent 60%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:780px;margin:0 auto;text-align:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(196,154,60,0.15);border:1px solid rgba(196,154,60,0.3);border-radius:50px;padding:8px 20px;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:32px}
+.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,88px);font-weight:600;color:#fff;line-height:1.05;letter-spacing:0.02em;margin-bottom:24px}
+.hero-title em{color:var(--gold);font-style:italic}
+.hero-sub{font-size:18px;font-weight:400;color:rgba(255,255,255,0.6);max-width:520px;margin:0 auto 48px;line-height:1.75}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,#d4a840,#a8782a);color:#fff;padding:16px 36px;border-radius:50px;font-size:15px;font-weight:700;letter-spacing:0.05em;text-decoration:none;transition:all 0.25s;box-shadow:0 8px 32px rgba(196,154,60,0.35);display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(196,154,60,0.45)}
+.btn-secondary{background:rgba(255,255,255,0.08);color:#fff;padding:16px 36px;border-radius:50px;font-size:15px;font-weight:600;letter-spacing:0.05em;text-decoration:none;border:1.5px solid rgba(255,255,255,0.2);transition:all 0.25s;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.35)}
+.hero-verse{margin-top:64px;padding-top:48px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-verse-text{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:rgba(255,255,255,0.5);line-height:1.6}
+.hero-verse-ref{font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-top:10px;opacity:0.7}
+
+/* SECTION SHARED */
+section{padding:100px 40px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);font-weight:600;color:var(--charcoal);line-height:1.1;margin-bottom:20px}
+.section-title em{color:var(--gold);font-style:italic}
+.section-sub{font-size:17px;color:var(--muted);max-width:560px;line-height:1.75;font-weight:400}
+
+/* WHAT IT IS */
+.what{background:var(--white)}
+.modes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.mode-card{border-radius:24px;padding:36px 32px;position:relative;overflow:hidden;transition:transform 0.25s}
+.mode-card:hover{transform:translateY(-4px)}
+.mode-card.couple{background:linear-gradient(145deg,#1a1410,#2d2218);border:1.5px solid rgba(196,154,60,0.2)}
+.mode-card.her{background:linear-gradient(145deg,#1a1028,#2d1850);border:1.5px solid rgba(124,92,191,0.25)}
+.mode-card.him{background:linear-gradient(145deg,#0e1a28,#1a2d40);border:1.5px solid rgba(58,90,122,0.3)}
+.mode-card-glow{position:absolute;top:0;right:0;width:60%;height:60%;pointer-events:none}
+.mode-card.couple .mode-card-glow{background:radial-gradient(ellipse at 80% 20%,rgba(196,154,60,0.15),transparent 65%)}
+.mode-card.her .mode-card-glow{background:radial-gradient(ellipse at 80% 20%,rgba(124,92,191,0.2),transparent 65%)}
+.mode-card.him .mode-card-glow{background:radial-gradient(ellipse at 80% 20%,rgba(58,90,122,0.2),transparent 65%)}
+.mode-tag{display:inline-flex;align-items:center;gap:7px;border-radius:50px;padding:6px 16px;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px;position:relative;z-index:1}
+.mode-card.couple .mode-tag{background:rgba(196,154,60,0.15);border:1px solid rgba(196,154,60,0.3);color:var(--gold)}
+.mode-card.her .mode-tag{background:rgba(124,92,191,0.15);border:1px solid rgba(124,92,191,0.35);color:#c4a8f0}
+.mode-card.him .mode-tag{background:rgba(58,90,122,0.15);border:1px solid rgba(58,90,122,0.35);color:#90b8d4}
+.mode-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:#fff;margin-bottom:12px;position:relative;z-index:1;line-height:1.2}
+.mode-desc{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.75;position:relative;z-index:1;font-weight:400}
+.mode-features{margin-top:24px;display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
+.mode-feat{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.45);font-weight:500}
+.mode-feat::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.mode-card.couple .mode-feat::before{background:var(--gold)}
+.mode-card.her .mode-feat::before{background:#c4a8f0}
+.mode-card.him .mode-feat::before{background:#90b8d4}
+
+/* HOW IT WORKS */
+.how{background:var(--cream)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:56px;position:relative}
+.steps::before{content:'';position:absolute;top:36px;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-border),transparent)}
+.step{text-align:center;position:relative}
+.step-num{width:72px;height:72px;border-radius:50%;background:var(--gold-pale);border:2px solid var(--gold-border);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold);position:relative;z-index:1}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--charcoal);margin-bottom:10px}
+.step-desc{font-size:14px;color:var(--muted);line-height:1.75;font-weight:400}
+
+/* FEATURES */
+.features{background:var(--white)}
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:56px}
+.feat-card{background:var(--cream);border:1.5px solid var(--border);border-radius:22px;padding:32px;transition:all 0.25s}
+.feat-card:hover{border-color:var(--gold-border);background:var(--gold-pale);transform:translateY(-2px)}
+.feat-icon{width:52px;height:52px;border-radius:16px;background:var(--charcoal);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.feat-icon svg{color:var(--gold)}
+.feat-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--charcoal);margin-bottom:8px}
+.feat-desc{font-size:14px;color:var(--muted);line-height:1.75;font-weight:400}
+
+/* WHO IT'S FOR */
+.who{background:var(--cream-dark)}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.who-card{background:var(--white);border:1.5px solid var(--border);border-radius:22px;padding:32px;transition:all 0.25s}
+.who-card:hover{border-color:var(--gold-border);transform:translateY(-3px);box-shadow:0 8px 40px rgba(26,20,10,0.08)}
+.who-avatar{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin-bottom:20px}
+.who-card:nth-child(1) .who-avatar{background:var(--gold-pale);color:var(--gold);border:2px solid var(--gold-border)}
+.who-card:nth-child(2) .who-avatar{background:#f5f0ff;color:#7c5cbf;border:2px solid #c4aff0}
+.who-card:nth-child(3) .who-avatar{background:#eef3f8;color:#3a5a7a;border:2px solid #9ab8d4}
+.who-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--charcoal);margin-bottom:8px}
+.who-desc{font-size:14px;color:var(--muted);line-height:1.75;font-weight:400}
+.who-quote{margin-top:20px;padding:14px 16px;background:var(--cream);border-radius:12px;border-left:3px solid var(--gold-border);font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--charcoal-mid);line-height:1.6}
+
+/* DEEPER WATERS */
+.deeper{background:linear-gradient(160deg,#1a1410 0%,#2d1f10 50%,#1e2a1a 100%);position:relative;overflow:hidden}
+.deeper-glow{position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse at 80% 30%,rgba(196,154,60,0.12),transparent 60%);pointer-events:none}
+.deeper .section-title{color:#fff}
+.deeper .section-sub{color:rgba(255,255,255,0.5)}
+.deeper .section-eyebrow{color:var(--rose);opacity:0.9}
+.deeper-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.deeper-card{border-radius:20px;padding:24px 20px;cursor:default;transition:transform 0.2s}
+.deeper-card:hover{transform:translateY(-3px)}
+.deeper-label{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff;margin-top:14px;margin-bottom:6px}
+.deeper-desc{font-size:12px;color:rgba(255,255,255,0.45);font-weight:500;line-height:1.5}
+.deeper-note{margin-top:48px;text-align:center;font-size:14px;color:rgba(255,255,255,0.35);font-weight:400;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+/* FOR PASTORS */
+.pastors{background:var(--white)}
+.pastors-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.pastors-image{background:linear-gradient(145deg,#1a1410,#2d2218);border-radius:28px;padding:48px;border:1.5px solid rgba(196,154,60,0.2);position:relative;overflow:hidden}
+.pastors-image-glow{position:absolute;top:0;right:0;width:60%;height:60%;background:radial-gradient(ellipse at 80% 20%,rgba(196,154,60,0.15),transparent 65%);pointer-events:none}
+.pastors-quote{font-family:'Cormorant Garamond',serif;font-size:28px;font-style:italic;color:#fff;line-height:1.5;position:relative;z-index:1}
+.pastors-quote-ref{font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-top:16px;position:relative;z-index:1}
+.pastors-list{display:flex;flex-direction:column;gap:20px;margin-top:32px}
+.pastors-item{display:flex;align-items:flex-start;gap:16px}
+.pastors-item-icon{width:44px;height:44px;border-radius:14px;background:var(--gold-pale);border:1.5px solid var(--gold-border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pastors-item-title{font-size:15px;font-weight:700;color:var(--charcoal);margin-bottom:4px}
+.pastors-item-desc{font-size:13px;color:var(--muted);line-height:1.65;font-weight:400}
+.pastors-cta{margin-top:32px}
+
+/* EMAIL */
+.email-section{background:linear-gradient(145deg,var(--gold-pale),#f0e4c8);border-top:1.5px solid var(--gold-border);border-bottom:1.5px solid var(--gold-border)}
+.email-inner{max-width:600px;margin:0 auto;text-align:center}
+.email-inner .section-title{color:var(--charcoal)}
+.email-form{display:flex;gap:12px;margin-top:32px}
+.email-input{flex:1;background:#fff;border:2px solid var(--border);border-radius:50px;padding:14px 24px;font-family:'Montserrat',sans-serif;font-size:15px;color:var(--charcoal);outline:none;transition:border-color 0.2s;font-weight:500}
+.email-input:focus{border-color:var(--gold)}
+.email-input::placeholder{color:var(--hint)}
+.email-btn{background:var(--charcoal);color:var(--gold);border:none;border-radius:50px;padding:14px 28px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:0.05em;transition:all 0.2s;white-space:nowrap}
+.email-btn:hover{background:var(--gold);color:#fff}
+.email-note{font-size:12px;color:var(--muted);margin-top:14px;font-weight:500}
+.email-success{display:none;background:var(--sage);color:#fff;padding:14px 24px;border-radius:50px;font-size:14px;font-weight:600;text-align:center;margin-top:16px}
+
+/* FAQ */
+.faq{background:var(--cream)}
+.faq-list{max-width:720px;margin:48px auto 0;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--white);border:1.5px solid var(--border);border-radius:18px;overflow:hidden;transition:border-color 0.2s}
+.faq-item.open{border-color:var(--gold-border)}
+.faq-q{padding:22px 28px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:16px;font-weight:600;color:var(--charcoal);user-select:none}
+.faq-q:hover{color:var(--gold)}
+.faq-arrow{width:24px;height:24px;flex-shrink:0;color:var(--hint);transition:transform 0.3s}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--gold)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s}
+.faq-item.open .faq-a{max-height:300px;padding:0 28px 22px}
+.faq-a p{font-size:15px;color:var(--muted);line-height:1.75;font-weight:400}
+
+/* FOOTER */
+footer{background:var(--charcoal);padding:60px 40px 40px;border-top:2px solid var(--gold)}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:48px;gap:40px}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#fff;letter-spacing:0.06em}
+.footer-logo span{color:var(--gold)}
+.footer-tagline{font-size:14px;color:rgba(255,255,255,0.4);margin-top:8px;font-weight:400}
+.footer-links{display:flex;gap:48px}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;opacity:0.8}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:10px;font-weight:400;transition:color 0.2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-copy{font-size:13px;color:rgba(255,255,255,0.3);font-weight:400}
+.footer-verse{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.2)}
+
+/* SCROLL ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-d1{transition-delay:0.1s}
+.fade-up-d2{transition-delay:0.2s}
+.fade-up-d3{transition-delay:0.3s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  section{padding:72px 24px}
+  .modes-grid,.steps,.who-grid,.deeper-grid,.features-grid{grid-template-columns:1fr}
+  .steps::before{display:none}
+  .pastors-inner{grid-template-columns:1fr;gap:40px}
+  .footer-top{flex-direction:column}
+  .footer-links{flex-direction:column;gap:32px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .hero{padding:100px 24px 60px}
+  .hero-actions{flex-direction:column;align-items:center}
+  .email-form{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="border-radius:8px">
+      <rect width="200" height="200" rx="40" fill="#faf6ef"/>
+      <path d="M62,100 A38,38 0 1,1 100,138" fill="none" stroke="#1a1410" stroke-width="13" stroke-linecap="round"/>
+      <path d="M100,138 A38,38 0 1,1 138,100 L138,118 Q138,135 124,145 L108,157 Q104,160 100,157 L84,145 Q70,135 70,118 L70,100" fill="none" stroke="#c49a3c" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="100" y1="76" x2="100" y2="108" stroke="#c49a3c" stroke-width="8" stroke-linecap="round"/>
+      <line x1="86" y1="92" x2="114" y2="92" stroke="#c49a3c" stroke-width="8" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Covenant <span>Two</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#how">How It Works</a>
+    <a href="#who">Who It's For</a>
+    <a href="#pastors">For Pastors</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://app.covenanttwo.com" class="nav-cta" target="_blank">Open App</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Built for Real Marriages</div>
+    <h1 class="hero-title">
+      The space between<br>Sunday and the<br><em>rest of your week</em>
+    </h1>
+    <p class="hero-sub">Most couples wait until they are in crisis to get help. Covenant Two is for the everyday — the quiet disconnection, the unspoken tension, the drift that happens when life gets loud. Built on Scripture. Designed for real marriages.</p>
+    <div class="hero-actions">
+      <a href="https://app.covenanttwo.com" class="btn-primary" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round"/></svg>
+        Try the App Free
+      </a>
+      <a href="#how" class="btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        Learn More
+      </a>
+    </div>
+    <div class="hero-verse">
+      <div class="hero-verse-text">"A cord of three strands is not quickly broken."</div>
+      <div class="hero-verse-ref">Ecclesiastes 4:12</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT IS -->
+<section class="what" id="what">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-up">Three Modes. One Mission.</div>
+    <h2 class="section-title fade-up fade-up-d1">One app. Every season<br>of <em>your marriage.</em></h2>
+    <p class="section-sub fade-up fade-up-d2">Whether you are sitting together on a Sunday evening or she is alone with God at 6am while the house is quiet — Covenant Two meets you exactly where you are.</p>
+    <div class="modes-grid">
+      <div class="mode-card couple fade-up">
+        <div class="mode-card-glow"></div>
+        <div class="mode-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          Together
+        </div>
+        <div class="mode-title">Couple Sessions</div>
+        <div class="mode-desc">One phone. Both of you. A devotional, prayer points, and conversation questions built around whatever is on your hearts that day.</div>
+        <div class="mode-features">
+          <div class="mode-feat">AI devotional tailored to your season</div>
+          <div class="mode-feat">3 personalized prayer points with Scripture</div>
+          <div class="mode-feat">5 conversation questions to go deeper</div>
+          <div class="mode-feat">Prayer log to record what God said</div>
+        </div>
+      </div>
+      <div class="mode-card her fade-up fade-up-d1">
+        <div class="mode-card-glow"></div>
+        <div class="mode-tag" style="background:rgba(124,92,191,0.15);border-color:rgba(124,92,191,0.35);color:#c4a8f0">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg>
+          She and God
+        </div>
+        <div class="mode-title">Her Daily Devotional</div>
+        <div class="mode-desc">A personal quiet time built for wives. Topics like feeling unseen, carrying the household, praying for your husband, and finding peace when things are hard.</div>
+        <div class="mode-features">
+          <div class="mode-feat" style="color:rgba(255,255,255,0.45)">Written to her heart as a woman</div>
+          <div class="mode-feat" style="color:rgba(255,255,255,0.45)">Personal reflection questions</div>
+          <div class="mode-feat" style="color:rgba(255,255,255,0.45)">Private prayer journal</div>
+          <div class="mode-feat" style="color:rgba(255,255,255,0.45)">30 women specific topics</div>
+        </div>
+      </div>
+      <div class="mode-card him fade-up fade-up-d2">
+        <div class="mode-card-glow"></div>
+        <div class="mode-tag" style="background:rgba(58,90,122,0.15);border-color:rgba(58,90,122,0.35);color:#90b8d4">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg>
+          He and God
+        </div>
+        <div class="mode-title">His Daily Devotional</div>
+        <div class="mode-desc">Direct, honest, challenge oriented. Topics like leading your family, pressure to provide, being emotionally present, and identity beyond your work.</div>
+        <div class="mode-features">
+          <div class="mode-feat" style="color:rgba(255,255,255,0.45)">Written to challenge and equip</div>
+          <div class="mode-feat" style="color:rgba(255,255,255,0.45)">Accountability focused questions</div>
+          <div class="mode-feat" style="color:rgba(255,255,255,0.45)">Private prayer journal</div>
+          <div class="mode-feat" style="color:rgba(255,255,255,0.45)">30 men specific topics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-up">Simple by Design</div>
+    <h2 class="section-title fade-up fade-up-d1">Ready in 60 seconds.<br><em>Meaningful every time.</em></h2>
+    <p class="section-sub fade-up fade-up-d2">No complex setup. No scheduling. Just open the app, tell it what is on your heart, and let it do the rest.</p>
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-num">1</div>
+        <div class="step-title">Set Up Your Profile</div>
+        <div class="step-desc">Answer a short quiz about your marriage season, tension areas, and spiritual life. The app uses this to personalize everything from day one.</div>
+      </div>
+      <div class="step fade-up fade-up-d1">
+        <div class="step-num">2</div>
+        <div class="step-title">Share What's on Your Heart</div>
+        <div class="step-desc">Type one word or a full situation. The app generates a devotional, prayer points with Scripture, and conversation questions built specifically around it.</div>
+      </div>
+      <div class="step fade-up fade-up-d2">
+        <div class="step-num">3</div>
+        <div class="step-title">Go Deeper Together</div>
+        <div class="step-desc">Work through the questions together, close in prayer, and log what God put on your hearts. Every session builds your history with each other and with Him.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-up">What Makes It Different</div>
+    <h2 class="section-title fade-up fade-up-d1">Not a generic devotional.<br><em>Yours. Every time.</em></h2>
+    <div class="features-grid">
+      <div class="feat-card fade-up">
+        <div class="feat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" color="#c49a3c"><path d="M12 2v20M2 12h20"/></svg>
+        </div>
+        <div class="feat-title">Devotionals Built on Scripture</div>
+        <div class="feat-desc">Every devotional is rooted in a specific Bible verse relevant to your topic. Not generic wellness advice. Scripture first, always.</div>
+      </div>
+      <div class="feat-card fade-up fade-up-d1">
+        <div class="feat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c49a3c" stroke-width="2.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div class="feat-title">Personalized to Your Season</div>
+        <div class="feat-desc">The onboarding quiz learns your marriage season, tension areas, and spiritual life. Every suggestion, topic, and devotional adapts over time.</div>
+      </div>
+      <div class="feat-card fade-up">
+        <div class="feat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c49a3c" stroke-width="2.5" stroke-linecap="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg>
+        </div>
+        <div class="feat-title">Deeper Waters Section</div>
+        <div class="feat-desc">Hard topics like infidelity, resentment, emotional distance, and financial crisis. Surfaced gently based on your profile. Never forced. Always grace filled.</div>
+      </div>
+      <div class="feat-card fade-up fade-up-d1">
+        <div class="feat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c49a3c" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="feat-title">Prayer Log and Streak</div>
+        <div class="feat-desc">Log what God put on your hearts after every session. Track your consistency with streaks and stats. Watch your spiritual history grow together.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="who" id="who">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-up">Real People. Real Marriages.</div>
+    <h2 class="section-title fade-up fade-up-d1">Whoever you are,<br><em>wherever you are.</em></h2>
+    <div class="who-grid">
+      <div class="who-card fade-up">
+        <div class="who-avatar">C</div>
+        <div class="who-title">The Couple Growing Together</div>
+        <div class="who-desc">You love each other. Things are mostly good. But spiritual connection keeps slipping between work, kids, and the noise of life. You want more than Sunday morning.</div>
+        <div class="who-quote">"We wanted a rhythm we could actually keep. Something that felt real, not religious."</div>
+      </div>
+      <div class="who-card fade-up fade-up-d1">
+        <div class="who-avatar">S</div>
+        <div class="who-title">The Wife Carrying It Quietly</div>
+        <div class="who-desc">You are the one who initiates, prays, and shows up. But some days you are running on empty and you need a space that is just you and God before the day starts.</div>
+        <div class="who-quote">"She and God is the only devotional that actually speaks to what I am going through."</div>
+      </div>
+      <div class="who-card fade-up fade-up-d2">
+        <div class="who-avatar">H</div>
+        <div class="who-title">The Husband Who Wants to Lead</div>
+        <div class="who-desc">You know you should be leading spiritually. You want to. You just do not always know how to start. He and God gives you an honest space to grow before you lead.</div>
+        <div class="who-quote">"I finally have something that challenges me, not just comforts me."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEEPER WATERS -->
+<section class="deeper" id="deeper">
+  <div class="deeper-glow"></div>
+  <div class="section-inner">
+    <div class="section-eyebrow fade-up">For the Hard Seasons</div>
+    <h2 class="section-title fade-up fade-up-d1">Some topics need<br><em>more than a quick read.</em></h2>
+    <p class="section-sub fade-up fade-up-d2">Covenant Two does not shy away from the painful parts of marriage. The Deeper Waters section opens conversations that most couples have been avoiding for months — gently, safely, and with Scripture at the center.</p>
+    <div class="deeper-grid fade-up">
+      <div class="deeper-card" style="background:linear-gradient(135deg,#2d0a0a,#4a1010)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s-8-4-8-10a8 8 0 0116 0c0 6-8 10-8 10z"/><path d="M12 8v4M12 16h.01"/></svg>
+        <div class="deeper-label">Infidelity</div>
+        <div class="deeper-desc">Betrayal and rebuilding trust</div>
+      </div>
+      <div class="deeper-card" style="background:linear-gradient(135deg,#1e1a2e,#2d2050)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9b8fd4" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s-8-4-8-10a8 8 0 0116 0c0 6-8 10-8 10z"/><path d="M12 8v4M12 16h.01"/></svg>
+        <div class="deeper-label">Resentment</div>
+        <div class="deeper-desc">Releasing built up bitterness</div>
+      </div>
+      <div class="deeper-card" style="background:linear-gradient(135deg,#1a1020,#2a1840)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c088e8" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s-8-4-8-10a8 8 0 0116 0c0 6-8 10-8 10z"/><path d="M12 8v4M12 16h.01"/></svg>
+        <div class="deeper-label">Emotional Distance</div>
+        <div class="deeper-desc">Closing the gap between you</div>
+      </div>
+      <div class="deeper-card" style="background:linear-gradient(135deg,#0e2d1a,#154024)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#50c878" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s-8-4-8-10a8 8 0 0116 0c0 6-8 10-8 10z"/><path d="M12 8v4M12 16h.01"/></svg>
+        <div class="deeper-label">Parenting Conflict</div>
+        <div class="deeper-desc">Aligning on raising children</div>
+      </div>
+    </div>
+    <p class="deeper-note fade-up">These sessions are not a substitute for professional counseling. We encourage couples in crisis to seek help from a licensed therapist or trusted pastor alongside using this app.</p>
+  </div>
+</section>
+
+<!-- FOR PASTORS -->
+<section class="pastors" id="pastors">
+  <div class="section-inner">
+    <div class="pastors-inner">
+      <div class="pastors-image fade-up">
+        <div class="pastors-image-glow"></div>
+        <div class="pastors-quote">"Two are better than one, because they have a good return for their labor. If either of them falls down, one can help the other up."</div>
+        <div class="pastors-quote-ref">Ecclesiastes 4:9-10</div>
+      </div>
+      <div class="fade-up fade-up-d1">
+        <div class="section-eyebrow">For Pastors and Counselors</div>
+        <h2 class="section-title" style="font-size:40px">A tool you can<br><em>recommend with confidence.</em></h2>
+        <p class="section-sub" style="font-size:15px">Covenant Two is built to sit alongside your ministry, not replace it. Whether you lead a marriage ministry, counsel couples, or just want something to point your congregation toward during the week.</p>
+        <div class="pastors-list">
+          <div class="pastors-item">
+            <div class="pastors-item-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c49a3c" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg>
+            </div>
+            <div>
+              <div class="pastors-item-title">Scripture at the Center</div>
+              <div class="pastors-item-desc">Every devotional is built around a relevant Bible verse. Not motivational content. God's Word applied to real marriage situations.</div>
+            </div>
+          </div>
+          <div class="pastors-item">
+            <div class="pastors-item-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c49a3c" stroke-width="2.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div>
+              <div class="pastors-item-title">Bridges the Gap Between Sessions</div>
+              <div class="pastors-item-desc">Give couples something to do between counseling sessions or small group meetings. A daily rhythm that keeps the conversation going at home.</div>
+            </div>
+          </div>
+          <div class="pastors-item">
+            <div class="pastors-item-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c49a3c" stroke-width="2.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <div>
+              <div class="pastors-item-title">Gentle on Hard Topics</div>
+              <div class="pastors-item-desc">The Deeper Waters section handles sensitive topics like infidelity and resentment with pastoral care, always encouraging professional support where needed.</div>
+            </div>
+          </div>
+        </div>
+        <div class="pastors-cta">
+          <a href="https://app.covenanttwo.com" class="btn-primary" target="_blank" style="display:inline-flex">Try It With Your Congregation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL SIGNUP -->
+<section class="email-section" id="signup" style="padding:80px 40px">
+  <div class="email-inner">
+    <div class="section-eyebrow" style="color:var(--muted)">Stay Connected</div>
+    <h2 class="section-title" style="font-size:40px">Get updates on<br><em>new features</em></h2>
+    <p style="font-size:16px;color:var(--muted);margin-top:12px;line-height:1.7">Be the first to know when new devotional topics, features, and resources drop. No spam. Just the good stuff.</p>
+    <form class="email-form" onsubmit="handleEmailSubmit(event)" action="https://gmail.us18.list-manage.com/subscribe/post?u=1fd21b51a24da4171ae2fe2d4&id=23a96f97cc&f_id=001eade6f0" method="post" target="_blank">
+      <input class="email-input" type="email" name="EMAIL" placeholder="Your email address" required>
+      <div style="position:absolute;left:-5000px;aria-hidden:true"><input type="text" name="b_1fd21b51a24da4171ae2fe2d4_23a96f97cc" tabindex="-1" value=""></div>
+      <button class="email-btn" type="submit">Stay Updated</button>
+    </form>
+    <div class="email-note">No spam. Unsubscribe any time. We take your privacy seriously.</div>
+    <div class="email-success" id="email-success">You are on the list! We will be in touch soon.</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-inner" style="text-align:center">
+    <div class="section-eyebrow fade-up">Got Questions</div>
+    <h2 class="section-title fade-up fade-up-d1" style="margin:0 auto">Common questions<br><em>answered honestly.</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Is Covenant Two free to use?
+        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-a"><p>Yes. Covenant Two is completely free to use right now. Open the app, set up your profile, and start your first session today with no payment required.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Do both partners need to be on the app at the same time?
+        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-a"><p>No. Couple sessions are designed for one phone, passed between both partners in the same room. Solo modes let each person use the app independently. No account syncing or separate logins needed.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Is this only for Christian couples?
+        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-a"><p>Covenant Two is built on a biblical foundation and uses Scripture throughout. It is designed for couples who want to bring God into their marriage. If that resonates with you, you will find a home here.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        How does the AI work?
+        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-a"><p>The app uses an AI to generate devotionals, prayer points, and questions based on your topic and profile answers. Think of it as a pastoral writing assistant — it creates something personal and Scripture rooted for your specific situation every single time.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Is my data private?
+        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-a"><p>All your session data, prayers, and profile answers are stored locally on your device. Nothing is sent to external servers beyond the AI prompt needed to generate your devotional. Your private conversations stay private.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Can my pastor or counselor recommend this?
+        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-a"><p>Absolutely. Covenant Two is designed to complement professional counseling and pastoral care, not replace it. It gives couples a meaningful daily rhythm between sessions. Share the app link with your congregation or clients directly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Covenant <span>Two</span></div>
+        <div class="footer-tagline">Built for real marriages. Rooted in Scripture.</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>The App</h4>
+          <a href="https://app.covenanttwo.com" target="_blank">Open App</a>
+          <a href="#how">How It Works</a>
+          <a href="#features">Features</a>
+          <a href="#deeper">Deeper Waters</a>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <a href="#who">Couples</a>
+          <a href="#who">Wives</a>
+          <a href="#who">Husbands</a>
+          <a href="#pastors">Pastors and Counselors</a>
+        </div>
+        <div class="footer-col">
+          <h4>Stay Connected</h4>
+          <a href="#signup">Get Updates</a>
+          <a href="#faq">FAQ</a>
+          <a href="mailto:hello@covenanttwo.com">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">2026 Covenant Two. All rights reserved.</div>
+      <div class="footer-verse">"A cord of three strands is not quickly broken." Ecclesiastes 4:12</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+window.addEventListener('scroll',function(){
+  const nav=document.getElementById('navbar');
+  nav.classList.toggle('scrolled',window.scrollY>50);
+});
+
+// Scroll animations
+const observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(function(el){observer.observe(el);});
+
+// FAQ toggle
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+  if(!isOpen)item.classList.add('open');
+}
+
+// Email form
+function handleEmailSubmit(e){
+  setTimeout(function(){
+    document.getElementById('email-success').style.display='block';
+  },500);
+}
+</script>
+</body>
+</html>
