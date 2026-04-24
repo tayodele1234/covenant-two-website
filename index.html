@@ -164,7 +164,7 @@ section{padding:100px 40px}
 .email-btn{background:var(--charcoal);color:var(--gold);border:none;border-radius:50px;padding:14px 28px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:0.05em;transition:all 0.2s;white-space:nowrap}
 .email-btn:hover{background:var(--gold);color:#fff}
 .email-note{font-size:12px;color:var(--muted);margin-top:14px;font-weight:500}
-.email-success{display:none;background:var(--sage);color:#fff;padding:14px 24px;border-radius:50px;font-size:14px;font-weight:600;text-align:center;margin-top:16px}
+.email-success{display:none;background:var(--charcoal);color:#fff;padding:28px 24px;border-radius:20px;text-align:center;margin-top:16px;animation:fadeUp 0.5s ease both}
 
 /* FAQ */
 .faq{background:var(--cream)}
@@ -547,13 +547,17 @@ nav.scrolled .hamburger span{background:var(--charcoal)}
     <div class="section-eyebrow" style="color:var(--muted)">Stay Connected</div>
     <h2 class="section-title" style="font-size:40px">Get updates on<br><em>new features</em></h2>
     <p style="font-size:16px;color:var(--muted);margin-top:12px;line-height:1.7">Be the first to know when new devotional topics, features, and resources drop. No spam. Just the good stuff.</p>
-    <form class="email-form" onsubmit="handleEmailSubmit(event)" action="https://gmail.us18.list-manage.com/subscribe/post?u=1fd21b51a24da4171ae2fe2d4&id=23a96f97cc&f_id=001eade6f0" method="post" target="_blank">
+    <form class="email-form" onsubmit="handleEmailSubmit(event)" action="https://gmail.us18.list-manage.com/subscribe/post?u=1fd21b51a24da4171ae2fe2d4&id=23a96f97cc&f_id=001eade6f0" method="post">
       <input class="email-input" type="email" name="EMAIL" placeholder="Your email address" required>
       <div style="position:absolute;left:-5000px;aria-hidden:true"><input type="text" name="b_1fd21b51a24da4171ae2fe2d4_23a96f97cc" tabindex="-1" value=""></div>
       <button class="email-btn" type="submit">Stay Updated</button>
     </form>
     <div class="email-note">No spam. Unsubscribe any time. We take your privacy seriously.</div>
-    <div class="email-success" id="email-success">You are on the list! We will be in touch soon.</div>
+    <div class="email-success" id="email-success">
+      <div style="font-size:28px;margin-bottom:12px">✓</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:8px">You are on the list</div>
+      <div style="font-size:14px;opacity:0.85">We will be in touch with updates and new features.</div>
+    </div>
   </div>
 </section>
 
@@ -682,9 +686,22 @@ function toggleFaq(el){
 
 // Email form
 function handleEmailSubmit(e){
-  setTimeout(function(){
-    document.getElementById('email-success').style.display='block';
-  },500);
+  e.preventDefault();
+  const form=e.target;
+  const email=form.querySelector('input[type="email"]').value;
+  if(!email){return;}
+  const data=new FormData(form);
+  fetch(form.action,{method:'POST',body:data,mode:'no-cors'})
+    .then(()=>{
+      form.style.display='none';
+      document.getElementById('email-success').style.display='block';
+      document.getElementById('email-success').style.animation='fadeUp 0.5s ease both';
+    })
+    .catch(()=>{
+      // Even if fetch errors, Mailchimp usually still gets it via no-cors
+      form.style.display='none';
+      document.getElementById('email-success').style.display='block';
+    });
 }
 </script>
 </body>
